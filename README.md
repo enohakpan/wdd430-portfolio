@@ -34,3 +34,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+App Vercel URL: https://wdd430-portfolio-2h4r.vercel.app/
+App gitHub URL: https://github.com/enohakpan/wdd430-portfolio
+Custom Component: AboutHero.tsx
+What is the purpose of app/layout.tsx in the Next.js App Router? It is the shared layout organization for every page. It make sure that relevant components appear on all pages without having to repeat them individually.
+Why are the components in this assignment Server Components rather than Client Components? They only display content from props. They do not need state, clicks, or browser APIs, so they can render on the server. Client Components are for interactive UI.
