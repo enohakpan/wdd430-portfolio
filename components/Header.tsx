@@ -7,6 +7,7 @@ export default function Header() {
       <nav className="max-w-4xl mx-auto px-4 flex justify-between items-center">
         <ul className="flex gap-6">
           <li><Link href="/">Home</Link></li>
+          <li><Link href="/projects">Projects</Link></li>
           <li><Link href="/about">About</Link></li>
         </ul>
       </nav>
