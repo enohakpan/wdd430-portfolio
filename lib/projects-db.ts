@@ -11,6 +11,14 @@ export interface Project {
   type: string;
 }
 
+export interface ProjectMutationInput {
+  title: string;
+  description: string;
+  technologies: string[];
+  link: string | null;
+  type: 'school' | 'opensource';
+}
+
 type ProjectRow = {
   id: number;
   title: string;
@@ -139,4 +147,30 @@ export async function fetchProjectsPages(query: string): Promise<number> {
   `;
 
   return Math.ceil(result.rows[0].count / ITEMS_PER_PAGE);
+}
+
+export async function createProjectRecord(data: ProjectMutationInput): Promise<void> {
+  await sql`
+    INSERT INTO projects (title, description, technologies, link, type)
+    VALUES (${data.title}, ${data.description}, ${data.technologies}, ${data.link}, ${data.type});
+  `;
+}
+
+export async function updateProjectRecord(id: number, data: ProjectMutationInput): Promise<void> {
+  await sql`
+    UPDATE projects
+    SET title = ${data.title},
+        description = ${data.description},
+        technologies = ${data.technologies},
+        link = ${data.link},
+        type = ${data.type}
+    WHERE id = ${id};
+  `;
+}
+
+export async function deleteProjectRecord(id: number): Promise<void> {
+  await sql`
+    DELETE FROM projects
+    WHERE id = ${id};
+  `;
 }
