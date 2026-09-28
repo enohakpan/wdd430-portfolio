@@ -1,5 +1,11 @@
 import ProjectList from '@/components/ProjectList';
+import type { Metadata } from 'next';
 import { getProjectsByType } from '@/lib/projects-db';
+
+export const metadata: Metadata = {
+  title: 'Open Source Projects',
+  description: 'Portfolio projects tagged as open source contributions and community work.',
+};
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

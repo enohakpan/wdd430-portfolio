@@ -1,6 +1,12 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
 import { createProject } from '@/app/lib/actions';
+
+export const metadata: Metadata = {
+  title: 'Create Project',
+  description: 'Create a new portfolio project from the dashboard.',
+};
 
 export default function NewProjectPage() {
   return (

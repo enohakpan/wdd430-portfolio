@@ -1,4 +1,10 @@
 import { LoginForm } from '@/components/login-form';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Sign In',
+  description: 'Sign in to access the portfolio owner dashboard and manage projects.',
+};
 
 export default function LoginPage() {
   return (

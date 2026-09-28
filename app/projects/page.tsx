@@ -1,7 +1,13 @@
 import ProjectList from '@/components/ProjectList';
 import Pagination from '@/components/Pagination';
 import ProjectSearch from '@/components/ProjectSearch';
+import type { Metadata } from 'next';
 import { fetchFilteredProjects, fetchProjectsPages } from '@/lib/projects-db';
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description: 'Browse all portfolio projects, search by keywords, and explore technologies used in each project.',
+};
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

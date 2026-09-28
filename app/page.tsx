@@ -1,5 +1,11 @@
 import ProjectList from '@/components/ProjectList';
+import type { Metadata } from 'next';
 import { getAllProjects } from '@/lib/projects-db';
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'Explore highlighted portfolio projects and recent web development work by Enoh Akpan.',
+};
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

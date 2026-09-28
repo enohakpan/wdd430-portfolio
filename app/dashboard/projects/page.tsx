@@ -1,8 +1,14 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
 import { auth } from '@/auth';
 import { ProjectActions } from '@/components/project-actions';
 import { getAllProjects } from '@/lib/projects-db';
+
+export const metadata: Metadata = {
+  title: 'Dashboard Projects',
+  description: 'Manage portfolio projects from the authenticated owner dashboard.',
+};
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

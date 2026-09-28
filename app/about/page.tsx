@@ -1,4 +1,10 @@
 import AboutHero from '@/components/AboutHero';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'About',
+    description: 'Learn more about Enoh Akpan, software engineering background, and professional goals.',
+};
 
 export default function About() {
     return (

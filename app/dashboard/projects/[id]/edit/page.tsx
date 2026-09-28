@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { updateProject } from '@/app/lib/actions';
@@ -6,6 +7,11 @@ import { getProjectById } from '@/lib/projects-db';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Edit Project',
+  description: 'Update an existing portfolio project from the dashboard.',
+};
 
 export default async function EditProjectPage(props: {
   params: Promise<{ id: string }>;

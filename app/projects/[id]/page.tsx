@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { getProjectById } from '@/lib/projects-db';
@@ -6,9 +7,49 @@ import { getProjectById } from '@/lib/projects-db';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-export default async function ProjectPage(props: {
+type Props = {
   params: Promise<{ id: string }>;
-}) {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id: idParam } = await params;
+  const id = Number(idParam);
+
+  if (!Number.isInteger(id) || id < 1) {
+    return {
+      title: 'Project Not Found',
+      description: 'The requested portfolio project could not be found.',
+    };
+  }
+
+  const project = await getProjectById(id);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+      description: 'The requested portfolio project could not be found.',
+    };
+  }
+
+  const description = project.description;
+
+  return {
+    title: project.title,
+    description,
+    openGraph: {
+      title: project.title,
+      description,
+      images: ['/opengraph-image.png'],
+    },
+    twitter: {
+      title: project.title,
+      description,
+      images: ['/opengraph-image.png'],
+    },
+  };
+}
+
+export default async function ProjectPage(props: Props) {
   const params = await props.params;
   const id = Number(params.id);
 

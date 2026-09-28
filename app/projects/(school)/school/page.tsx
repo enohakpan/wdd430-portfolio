@@ -1,8 +1,14 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 
 import ProjectList from '@/components/ProjectList';
 import { ProjectGridSkeleton } from '@/components/ProjectSkeletons';
 import { getProjectsByType } from '@/lib/projects-db';
+
+export const metadata: Metadata = {
+  title: 'School Projects',
+  description: 'Portfolio projects completed as part of school assignments and coursework.',
+};
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
